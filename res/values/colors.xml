@@ -26,6 +26,8 @@
 
     <color name="focused_background">#80c6c5c5</color>
 
+    <color name="disabled_text_color">#66000000</color> <!-- 38% black -->
+
     <color name="default_shadow_color_no_alpha">#FF000000</color>
 
     <color name="spring_loaded_panel_color">#40FFFFFF</color>

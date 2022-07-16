@@ -138,4 +138,13 @@
         android:min="0"
         android:defaultValue="80" />
 
+     <com.android.launcher3.settings.preferences.CustomSeekBarPreference
+        android:key="pref_blur_depth"
+        android:title="@string/background_blur_title"
+        android:summary="@string/background_blur_summary"
+        android:persistent="true"
+        android:max="175"
+        android:min="0"
+        android:defaultValue="23" />
+
 </androidx.preference.PreferenceScreen>

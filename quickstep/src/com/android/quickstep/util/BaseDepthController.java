@@ -59,7 +59,7 @@ public class BaseDepthController {
     /**
      * Blur radius when completely zoomed out, in pixels.
      */
-    protected final int mMaxBlurRadius;
+    protected final float mMaxBlurRadius;
     protected final WallpaperManager mWallpaperManager;
     protected boolean mCrossWindowBlursEnabled;
 
@@ -86,7 +86,7 @@ public class BaseDepthController {
 
     public BaseDepthController(Launcher activity) {
         mLauncher = activity;
-        mMaxBlurRadius = activity.getResources().getInteger(R.integer.max_depth_blur_radius);
+        mMaxBlurRadius = Utilities.getBlurRadius(activity);
         mWallpaperManager = activity.getSystemService(WallpaperManager.class);
 
         MultiPropertyFactory<BaseDepthController> depthProperty =

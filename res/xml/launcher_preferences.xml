@@ -108,4 +108,10 @@
         android:summary="@string/allow_wallpaper_scrolling_summary"
         android:defaultValue="true" />
 
+    <SwitchPreference
+        android:key="pref_recents_meminfo"
+        android:title="@string/recents_meminfo_title"
+        android:defaultValue="false"
+        android:persistent="true" />
+
 </androidx.preference.PreferenceScreen>

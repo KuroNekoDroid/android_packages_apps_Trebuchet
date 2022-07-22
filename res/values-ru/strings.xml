@@ -172,4 +172,5 @@
     <string name="search_pref_screen_title_tablet" msgid="5220319680451343959">"Поиск на планшете"</string>
     <string name="remote_action_failed" msgid="1383965239183576790">"Не удалось выполнить действие (<xliff:g id="WHAT">%1$s</xliff:g>)."</string>
     <string name="meminfo_text">%1$s Доступно | %2$s Всего</string>
+    <string name="recents_meminfo_title">Информация об ОЗУ</string>
 </resources>

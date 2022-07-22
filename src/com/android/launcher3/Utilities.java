@@ -146,6 +146,8 @@ public final class Utilities {
     public static final int TRANSLATE_LEFT = 2;
     public static final int TRANSLATE_RIGHT = 3;
 
+    public static final String KEY_RECENTS_MEMINFO = "pref_recents_meminfo";
+
     @IntDef({TRANSLATE_UP, TRANSLATE_DOWN, TRANSLATE_LEFT, TRANSLATE_RIGHT})
     public @interface AdjustmentDirection{}
 
@@ -813,4 +815,9 @@ public final class Utilities {
         SharedPreferences prefs = LauncherPrefs.getPrefs(context.getApplicationContext());
         return prefs.getBoolean(KEY_DT_GESTURE, true);
     }
+
+    public static boolean isShowMeminfo(Context context) {
+        SharedPreferences prefs = LauncherPrefs.getPrefs(context.getApplicationContext());
+        return prefs.getBoolean(KEY_RECENTS_MEMINFO, false);
+   }
 }

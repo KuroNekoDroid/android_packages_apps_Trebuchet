@@ -36,6 +36,7 @@ import com.android.launcher3.util.DisplayController;
 import com.android.launcher3.util.MultiPropertyFactory.MultiProperty;
 import com.android.launcher3.util.MultiValueAlpha;
 import com.android.launcher3.util.NavigationMode;
+import com.android.launcher3.util.ShakeUtils;
 import com.android.quickstep.TaskOverlayFactory.OverlayUICallbacks;
 import com.android.quickstep.util.LayoutUtils;
 
@@ -46,7 +47,7 @@ import java.lang.annotation.RetentionPolicy;
  * View for showing action buttons in Overview
  */
 public class OverviewActionsView<T extends OverlayUICallbacks> extends FrameLayout
-        implements OnClickListener, Insettable {
+        implements OnClickListener, Insettable, ShakeUtils.OnShakeListener {
 
     private final Rect mInsets = new Rect();
 
@@ -97,6 +98,7 @@ public class OverviewActionsView<T extends OverlayUICallbacks> extends FrameLayo
 
     private MultiValueAlpha mMultiValueAlpha;
     private Button mSplitButton;
+    private ShakeUtils mShakeUtils;
 
     @ActionsHiddenFlags
     private int mHiddenFlags;
@@ -129,17 +131,44 @@ public class OverviewActionsView<T extends OverlayUICallbacks> extends FrameLayo
         super(context, attrs, defStyleAttr, 0);
     }
 
+    private void bindShake() {
+        mShakeUtils.bindShakeListener(this);
+    }
+
+    private void unBindShake() {
+        mShakeUtils.unBindShakeListener(this);
+    }
+
+    @Override
+    public void onVisibilityAggregated(boolean isVisible) {
+        super.onVisibilityAggregated(isVisible);
+        if (isVisible) {
+            bindShake();
+        } else {
+            unBindShake();
+        }
+    }
+
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
         mMultiValueAlpha = new MultiValueAlpha(findViewById(R.id.action_buttons), NUM_ALPHAS);
         mMultiValueAlpha.setUpdateVisibility(true);
+        mShakeUtils = new ShakeUtils(getContext());
 
         findViewById(R.id.action_screenshot).setOnClickListener(this);
         findViewById(R.id.action_clear_all).setOnClickListener(this);    
 
         mSplitButton = findViewById(R.id.action_split);
         mSplitButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onShake(double speed) {
+        if (mCallbacks != null && findViewById(R.id.action_clear_all).getVisibility() == VISIBLE) {
+            mCallbacks.onClearAllTasksRequested();
+            setCallbacks(null); // Clear the listener after shake
+        }
     }
 
     /**

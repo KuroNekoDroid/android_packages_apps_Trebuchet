@@ -217,4 +217,5 @@
     <!-- Whether the floating rotation button should be on the left/right in the device's natural
          orientation -->
     <bool name="floating_rotation_button_position_left">true</bool>
+    <integer name="max_depth_blur_radius">75</integer>
 </resources>

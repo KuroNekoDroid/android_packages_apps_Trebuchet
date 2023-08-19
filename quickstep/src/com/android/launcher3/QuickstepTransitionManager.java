@@ -182,7 +182,7 @@ public class QuickstepTransitionManager implements OnDeviceProfileChangeListener
     private static final long APP_LAUNCH_DURATION = 500;
 
     private static final long APP_LAUNCH_ALPHA_DURATION = 50;
-    private static final long APP_LAUNCH_ALPHA_START_DELAY = 25;
+    private static final long APP_LAUNCH_ALPHA_START_DELAY = 10;
 
     public static final int ANIMATION_NAV_FADE_IN_DURATION = 266;
     public static final int ANIMATION_NAV_FADE_OUT_DURATION = 133;
@@ -193,13 +193,13 @@ public class QuickstepTransitionManager implements OnDeviceProfileChangeListener
     public static final Interpolator NAV_FADE_OUT_INTERPOLATOR =
             new PathInterpolator(0.2f, 0f, 1f, 1f);
 
-    public static final int RECENTS_LAUNCH_DURATION = 336;
+    public static final int RECENTS_LAUNCH_DURATION = 227;
     private static final int LAUNCHER_RESUME_START_DELAY = 100;
     private static final int CLOSING_TRANSITION_DURATION_MS = 250;
     public static final int SPLIT_LAUNCH_DURATION = 370;
     public static final int SPLIT_DIVIDER_ANIM_DURATION = 100;
 
-    public static final int CONTENT_ALPHA_DURATION = 217;
+    public static final int CONTENT_ALPHA_DURATION = 153;
     public static final int TRANSIENT_TASKBAR_TRANSITION_DURATION = 417;
     public static final int TASKBAR_TO_APP_DURATION = 600;
     // TODO(b/236145847): Tune TASKBAR_TO_HOME_DURATION to 383 after conflict with unlock animation

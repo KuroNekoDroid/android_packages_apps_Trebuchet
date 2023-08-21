@@ -79,7 +79,7 @@ public class DesktopTaskView extends TaskView {
 
     private static final String TAG = DesktopTaskView.class.getSimpleName();
 
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     @NonNull
     private List<Task> mTasks = new ArrayList<>();

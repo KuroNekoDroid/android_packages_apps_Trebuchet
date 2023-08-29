@@ -128,7 +128,7 @@
         android:persistent="true"
         android:max="100"
         android:min="0"
-        android:defaultValue="40" />
+        android:defaultValue="35" />
 
     <com.android.launcher3.settings.preferences.CustomSeekBarPreference
         android:key="pref_app_drawer_opacity"
@@ -145,6 +145,6 @@
         android:persistent="true"
         android:max="175"
         android:min="0"
-        android:defaultValue="23" />
+        android:defaultValue="71" />
 
 </androidx.preference.PreferenceScreen>

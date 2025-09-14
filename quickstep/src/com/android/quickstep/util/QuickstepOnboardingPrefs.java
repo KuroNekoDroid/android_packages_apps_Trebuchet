@@ -64,29 +64,6 @@ public class QuickstepOnboardingPrefs extends OnboardingPrefs<QuickstepLauncher>
             });
         }
 
-        if (!Utilities.isRunningInTestHarness()
-                && !hasReachedMaxCount(HOTSEAT_DISCOVERY_TIP_COUNT)) {
-            stateManager.addStateListener(new StateListener<LauncherState>() {
-                boolean mFromAllApps = false;
-
-                @Override
-                public void onStateTransitionStart(LauncherState toState) {
-                    mFromAllApps = mLauncher.getStateManager().getCurrentStableState() == ALL_APPS;
-                }
-
-                @Override
-                public void onStateTransitionComplete(LauncherState finalState) {
-                    HotseatPredictionController client = mLauncher.getHotseatPredictionController();
-                    if (mFromAllApps && finalState == NORMAL && client.hasPredictions()) {
-                        if (incrementEventCount(HOTSEAT_DISCOVERY_TIP_COUNT)) {
-                            client.showEdu();
-                            stateManager.removeStateListener(this);
-                        }
-                    }
-                }
-            });
-        }
-
         if (DisplayController.getNavigationMode(launcher) == NO_BUTTON) {
             stateManager.addStateListener(new StateListener<LauncherState>() {
                 private static final int MAX_NUM_SWIPES_TO_TRIGGER_EDU = 3;

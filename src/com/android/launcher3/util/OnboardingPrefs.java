@@ -36,7 +36,6 @@ public class OnboardingPrefs<T extends ActivityContext> {
 
     public static final String HOME_BOUNCE_SEEN = "launcher.apps_view_shown";
     public static final String HOME_BOUNCE_COUNT = "launcher.home_bounce_count";
-    public static final String HOTSEAT_DISCOVERY_TIP_COUNT = "launcher.hotseat_discovery_tip_count";
     public static final String HOTSEAT_LONGPRESS_TIP_SEEN = "launcher.hotseat_longpress_tip_seen";
     public static final String SEARCH_KEYBOARD_EDU_SEEN = "launcher.search_edu_seen";
     public static final String SEARCH_SNACKBAR_COUNT = "launcher.keyboard_snackbar_count";
@@ -48,8 +47,6 @@ public class OnboardingPrefs<T extends ActivityContext> {
     // When adding a new key, add it here as well, to be able to reset it from Developer Options.
     public static final Map<String, String[]> ALL_PREF_KEYS = Map.of(
             "All Apps Bounce", new String[] { HOME_BOUNCE_SEEN, HOME_BOUNCE_COUNT },
-            "Hybrid Hotseat Education", new String[] { HOTSEAT_DISCOVERY_TIP_COUNT,
-                    HOTSEAT_LONGPRESS_TIP_SEEN },
             "Search Education", new String[] { SEARCH_KEYBOARD_EDU_SEEN, SEARCH_SNACKBAR_COUNT,
                     SEARCH_ONBOARDING_COUNT, QSB_SEARCH_ONBOARDING_CARD_DISMISSED},
             "Taskbar Education", new String[] { TASKBAR_EDU_SEEN, TASKBAR_EDU_TOOLTIP_STEP },
@@ -74,7 +71,6 @@ public class OnboardingPrefs<T extends ActivityContext> {
      */
     @StringDef(value = {
             HOME_BOUNCE_COUNT,
-            HOTSEAT_DISCOVERY_TIP_COUNT,
             SEARCH_SNACKBAR_COUNT,
             SEARCH_ONBOARDING_COUNT,
             ALL_APPS_VISITED_COUNT,
@@ -88,7 +84,6 @@ public class OnboardingPrefs<T extends ActivityContext> {
     static {
         Map<String, Integer> maxCounts = new ArrayMap<>(5);
         maxCounts.put(HOME_BOUNCE_COUNT, 3);
-        maxCounts.put(HOTSEAT_DISCOVERY_TIP_COUNT, 5);
         maxCounts.put(SEARCH_SNACKBAR_COUNT, 3);
         // This is the sum of all onboarding cards. Currently there is only 1 card shown 3 times.
         maxCounts.put(SEARCH_ONBOARDING_COUNT, 3);
